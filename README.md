@@ -50,7 +50,7 @@ Make sure PV and PVC shows Status as ‘Bound’
 
 ## Configure helm chart values.yaml
 - https://github.com/SonarSource/helm-chart-sonarqube/blob/master/charts/sonarqube-dce/values.yaml 
-- Add `existingClaim` attribute
+- Add `existingClaim` key
 ```
   persistence:
     enabled: true
