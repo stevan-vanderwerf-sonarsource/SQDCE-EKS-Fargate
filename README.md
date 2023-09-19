@@ -30,9 +30,9 @@
 - Create PV, PVC, and Storage Class
 - https://aws.amazon.com/blogs/storage/persistent-storage-for-kubernetes/ (Static provisioning using Amazon EFS section section)
 - A separate PV/PVC should be created for each Search Node name:
-sonarqube-sonarqube-dce-sonarqube-sonarqube-dce-search-0
+_sonarqube-sonarqube-dce-sonarqube-sonarqube-dce-search-0
 Sonarqube-sonarqube-dce-sonarqube-sonarqube-dce-search-1
-sonarqube-sonarqube-dce-sonarqube-sonarqube-dce-search-2
+sonarqube-sonarqube-dce-sonarqube-sonarqube-dce-search-2_
 ```
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -50,7 +50,7 @@ Make sure PV and PVC shows Status as ‘Bound’
 
 ## Configure helm chart values.yaml
 - https://github.com/SonarSource/helm-chart-sonarqube/blob/master/charts/sonarqube-dce/values.yaml 
-- Add existingClaim attribute
+- Add `existingClaim` attribute
 ```
   persistence:
     enabled: true
@@ -70,7 +70,7 @@ Make sure PV and PVC shows Status as ‘Bound’
     size: 5Gi
     uid: 1000
 ```
-- Deploy SonarQube DCE helm chart from file
+## Deploy SonarQube DCE helm chart from file
 - https://github.com/SonarSource/helm-chart-sonarqube/tree/master/charts/sonarqube-dce
 
 ```helm upgrade --install -f custom-values.yaml sonarqube --set ApplicationNodes.jwtSecret=$JWT_SECRET sonarqube/sonarqube-dce```
